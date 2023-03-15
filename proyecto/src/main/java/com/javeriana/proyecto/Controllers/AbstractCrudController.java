@@ -18,7 +18,7 @@ import com.javeriana.proyecto.Interfaces.ICrudService;
 import org.springframework.http.MediaType;
 
 @RestController
-public abstract class AbstractController <T extends AbstractEntity> implements ICrudController<T>
+public abstract class AbstractCrudController <T extends AbstractEntity> implements ICrudController<T>
 {
     @Autowired
     protected ICrudService<T> service;

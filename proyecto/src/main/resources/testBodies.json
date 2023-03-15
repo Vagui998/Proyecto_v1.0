@@ -1,0 +1,6 @@
+{  
+   "id"  : "3",  
+   "name"  : "puntilla",  
+   "image_url" : "test.com",  
+   "description"  : "Esto es un test de PUT"
+ }  

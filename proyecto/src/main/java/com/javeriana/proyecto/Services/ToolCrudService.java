@@ -17,7 +17,7 @@ interface ToolRepository extends ICrudService.IEntityRepository<Tool>
 }
 
 @Service
-public class ToolService implements ICrudService<Tool>
+public class ToolCrudService implements ICrudService<Tool>
 {
 
     @Autowired

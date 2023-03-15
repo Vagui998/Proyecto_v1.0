@@ -9,7 +9,7 @@ import com.javeriana.proyecto.Entities.Tool;
 
 @RestController
 @RequestMapping("/tools")
-public class ToolController extends AbstractController<Tool>
+public class ToolCrudController extends AbstractCrudController<Tool>
 {    
     public List<Tool> getAllTools()
     {
