@@ -1,9 +1,11 @@
 package com.javeriana.proyecto.Entities;
 
-import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,22 +15,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Embeddable
-class ToolCityId implements Serializable
-{
-
-    @Setter
-    @Getter
-    @Column(name = "tool_id")
-    private Long toolId;
-
-    @Setter
-    @Getter
-    @Column(name = "city_id")
-    private Long cityId;
-
-}
-
+@JsonSerialize
 @Entity
 @Table(name = "tool_city")
 public class ToolCity 
@@ -39,11 +26,13 @@ public class ToolCity
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("toolId")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @Getter
     @Setter
     private Tool tool;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @MapsId("cityId")
     @Getter
     @Setter
