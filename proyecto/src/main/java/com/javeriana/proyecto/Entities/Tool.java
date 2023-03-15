@@ -41,6 +41,7 @@ public class Tool extends AbstractEntity
     @Column(name = "precio")
     private double price;
 
+
     public Tool(Long pId, String pName, String pImgUrl, String pDescription, Brand pBrand, double pPrice) 
     {
         super(pId, pName);

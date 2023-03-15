@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.InheritanceType;
 
 @Entity
-@Table(name = "brand")
+@Table(name = "city")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class City extends AbstractEntity
 {
@@ -17,6 +17,6 @@ public class City extends AbstractEntity
 
     public City()
     {
-        
+
     }
 }

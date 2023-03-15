@@ -9,6 +9,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
@@ -27,13 +28,15 @@ public class ToolCity
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("toolId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JoinColumn(name = "tool_id")
     @Getter
     @Setter
     private Tool tool;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @MapsId("cityId")
+    @JoinColumn(name = "city_id")
     @Getter
     @Setter
     private City city;

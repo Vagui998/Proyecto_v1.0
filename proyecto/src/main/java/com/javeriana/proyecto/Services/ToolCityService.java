@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.javeriana.proyecto.Entities.City;
+import com.javeriana.proyecto.Entities.Tool;
 import com.javeriana.proyecto.Entities.ToolCity;
 import com.javeriana.proyecto.Entities.ToolCityId;
 
@@ -18,6 +19,9 @@ interface ToolCityRepository extends CrudRepository<ToolCity, ToolCityId>
 {
     @Query("SELECT tc.city FROM ToolCity tc WHERE tc.tool.id = :toolId")
     List<City> findCitiesByToolId(@Param("toolId") Long toolId);
+
+    @Query("SELECT tc.tool FROM ToolCity tc WHERE tc.city.id = :cityId")
+    List<Tool> findToolsByCityId(@Param("cityId") Long cityId);
 }
 
 @Service
@@ -29,5 +33,15 @@ public class ToolCityService
     public List<ToolCity> getAll()
     {
         return (List<ToolCity>) repo.findAll();
+    }
+
+    public List<City> getCitiesByTool(Long pId)
+    {
+        return repo.findCitiesByToolId(pId);
+    }
+
+    public List<Tool> getToolsByCity(Long pId)
+    {
+        return repo.findToolsByCityId(pId);
     }
 }
