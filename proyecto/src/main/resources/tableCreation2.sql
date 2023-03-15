@@ -2,6 +2,36 @@ drop table if exists tool_city;
 drop table if exists city;
 drop table if exists tool;
 drop table if exists brand;
+drop table if exists user;
+drop table if exists account_permission;
+drop table if exists permission;
+drop table if exists account_type;
+
+CREATE TABLE account_type (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE permission (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE account_permission (
+    account_type_id INT,
+    permission_id INT,
+    PRIMARY KEY (account_type_id, permission_id),
+    FOREIGN KEY (account_type_id) REFERENCES account_type(id),
+    FOREIGN KEY (permission_id) REFERENCES permission(id)
+);
+
+CREATE TABLE user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(64) NOT NULL,
+    pass VARCHAR(32) NOT NULL,
+    acc_type_id INT NOT NULL,
+    FOREIGN KEY (acc_type_id) REFERENCES account_type(id)
+);
 
 CREATE TABLE brand (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -39,6 +69,36 @@ CREATE TABLE tool_city (
     FOREIGN KEY (tool_id) REFERENCES tool(id),
     FOREIGN KEY (city_id) REFERENCES city(id)
 );
+
+
+INSERT INTO account_type (name) 
+VALUES
+    ('SuperAdmin'),
+    ('Admin'),
+    ('User');
+
+INSERT INTO permission (name)
+VALUES
+    ('create'),
+    ('read'),
+    ('update'),
+    ('delete');
+
+INSERT INTO account_permission(account_type_id, permission_id)
+VALUES
+    (1,1),
+    (1,2),
+    (1,3),
+    (1,4),
+    (2,1),
+    (2,2),
+    (3,2);
+
+INSERT INTO user (name, pass, acc_type_id)
+VALUES
+    ('TopAdmin', '1234', 1),
+    ('LowAdmin', '5678', 2),
+    ('EndUser', '9012', 3);
 
 
 INSERT INTO brand (name, image_url) 
