@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.javeriana.proyecto.Entities.City;
 import com.javeriana.proyecto.Entities.Tool;
-import com.javeriana.proyecto.Entities.ToolCity;
+import com.javeriana.proyecto.RelationEntities.ToolCity;
 import com.javeriana.proyecto.Services.ToolCityService;
 
 @RestController

@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.javeriana.proyecto.Entities.City;
 import com.javeriana.proyecto.Entities.Tool;
-import com.javeriana.proyecto.Entities.ToolCity;
-import com.javeriana.proyecto.Entities.ToolCityId;
+import com.javeriana.proyecto.RelationEntities.ToolCity;
+import com.javeriana.proyecto.RelationEntities.ToolCityId;
 
 @Repository
 interface ToolCityRepository extends CrudRepository<ToolCity, ToolCityId>

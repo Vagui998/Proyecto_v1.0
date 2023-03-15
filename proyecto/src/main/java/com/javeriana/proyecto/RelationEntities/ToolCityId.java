@@ -1,4 +1,4 @@
-package com.javeriana.proyecto.Entities;
+package com.javeriana.proyecto.RelationEntities;
 
 import java.util.Objects;
 
