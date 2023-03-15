@@ -18,7 +18,7 @@ public abstract class AbstractEntity implements IEntity
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     public AbstractEntity(Long pId, String pName)

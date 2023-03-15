@@ -10,15 +10,20 @@ import org.springframework.stereotype.Service;
 import com.javeriana.proyecto.Entities.Tool;
 import com.javeriana.proyecto.Interfaces.ICrudService;
 
+
+
 @Repository
 interface ToolRepository extends ICrudService.IEntityRepository<Tool> 
 {
-    
+
 }
 
 @Service
 public class ToolCrudService implements ICrudService<Tool>
 {
+
+
+
 
     @Autowired
     ToolRepository repo;
