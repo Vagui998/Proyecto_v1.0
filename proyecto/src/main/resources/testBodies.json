@@ -23,5 +23,24 @@
               "image_url": "http://img.com/Makita.jpg"
                   },
           "price": 29.91
+  },
+
+  {
+    "name": "PostTest",
+    "pass": "1234",
+    "accountType": {
+        "id": 3,
+        "name": "User"
+    }
+  },
+
+  {
+    "id": 4,
+    "name": "PUT Test",
+    "pass": "1234",
+    "accountType": {
+        "id": 2,
+        "name": "Admin"
+    }
   }
 ]
