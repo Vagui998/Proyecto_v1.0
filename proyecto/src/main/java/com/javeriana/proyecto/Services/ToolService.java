@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.javeriana.proyecto.Entities.Tool;
 import com.javeriana.proyecto.Interfaces.ICrudService;
-import com.javeriana.proyecto.Interfaces.IEntityRepository;
 
 @Repository
-interface ToolRepository extends IEntityRepository<Tool> 
+interface ToolRepository extends ICrudService.IEntityRepository<Tool> 
 {
     
 }
